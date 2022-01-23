@@ -14,23 +14,27 @@ public class DocumentController {
 
     @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void createDocument(@RequestBody Document document) {
+        System.out.println("Created");
         documentService.createDocument(document);
     }
 
     @GetMapping("/read/{documentId}")
     @ResponseBody
     public Document getDocumentById(@PathVariable Long documentId) {
+        System.out.println("Read");
         return documentService.getDocumentById(documentId);
     }
 
     @PutMapping("/update")
     public void changeDocumentName(@RequestParam Long documentId,
                                    @RequestParam String newName) {
+        System.out.println("Update");
         documentService.changeDocumentName(documentId, newName);
     }
 
     @DeleteMapping("/delete/{documentId}")
     public void deleteDocumentById(@PathVariable Long documentId) {
+        System.out.println("Delete");
         documentService.deleteDocumentById(documentId);
     }
 }
